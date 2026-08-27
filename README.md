@@ -4,7 +4,7 @@ Claude Code 전역 설정입니다. 새 기기나 새 계정에서 `bash install
 
 - CLAUDE.md에 담긴 말투 규칙
 - md가 일기장이 되는 것을 막는 hook
-- 리포에 든 스킬 3종
+- 리포에 든 스킬 4종
 - 함께 깔리는 외부 스킬 1종
 
 ## 설치
@@ -30,6 +30,7 @@ bash install.sh
 | `/commit` | 커밋할 때 | diff만 본 haiku가 커밋 메시지 작성 |
 | `/wrap` | 작업을 끝낼 때 | 지식은 문서로 옮기고 부산물은 지운 뒤 커밋 |
 | `/distill` | md가 비대해졌을 때 | 늘어진 기록을 네 갈래로 추려냄 |
+| `/readme` | README가 코드와 어긋날 때 | 갱신 후 haiku에게 읽혀 검증 |
 | `/humanize-korean` | 한국어 글이 AI 같을 때 | 번역투와 기계적 병렬 구조 교정 |
 
 ## 구성
@@ -42,6 +43,7 @@ bash install.sh
 | `skills/commit/SKILL.md` | 커밋 메시지 스킬 |
 | `skills/wrap/SKILL.md` | 세션 마무리 스킬 |
 | `skills/distill/SKILL.md` | md 추려내기 스킬 |
+| `skills/readme/SKILL.md` | README 작성 스킬 |
 | `install.sh` | 위 파일 복사 + hook 등록 |
 
 ## 외부 의존
@@ -56,7 +58,7 @@ bash install.sh
 ## 제거
 
 ```bash
-rm -rf ~/.claude/skills/{commit,wrap,distill}
+rm -rf ~/.claude/skills/{commit,wrap,distill,readme}
 rm -f ~/.claude/hooks/md-discipline.sh ~/.claude/CLAUDE.md
 bash ~/.claude/vendor/im-not-ai/uninstall.sh
 rm -rf ~/.claude/vendor/im-not-ai
