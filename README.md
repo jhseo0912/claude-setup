@@ -2,9 +2,10 @@
 
 Claude Code 전역 설정입니다. 새 기기·새 계정에서 `bash install.sh` 한 번이면 그대로 돌아옵니다.
 
-- 말투 규칙 (CLAUDE.md)
+- CLAUDE.md에 담긴 말투 규칙
 - md가 일기장이 되는 것을 막는 hook
-- 반복 작업 스킬 4종
+- 리포에 든 스킬 3종
+- 함께 깔리는 외부 스킬 1종
 
 ## 설치
 
@@ -14,7 +15,7 @@ cd claude-setup
 bash install.sh
 ```
 
-- 필요한 것: Claude Code, node (hook 등록에 사용)
+- 필요한 것: Claude Code, 그리고 hook 등록에 쓸 node
 - `~/.claude/`에 파일 복사 + settings.json에 hook 등록
 - 기존 `~/.claude/CLAUDE.md`는 `.bak`으로 백업
 - settings.json은 hook만 추가, 나머지 설정은 그대로
@@ -28,14 +29,14 @@ bash install.sh
 |---|---|---|
 | `/commit` | 커밋할 때 | diff만 본 haiku 서브에이전트가 메시지 작성. 세션 맥락이 안 섞여 장황해지지 않음 |
 | `/wrap` | 작업을 끝낼 때 | 남은 것을 결과물·지식·부산물로 나눠 지식은 문서로, 부산물은 삭제 후 커밋 |
-| `/distill` | md가 비대해졌을 때 | 늘어진 기록을 제약·결정(ADR)·상태·docs 네 갈래로 추려냄 |
+| `/distill` | md가 비대해졌을 때 | 늘어진 기록을 제약·결정·상태·docs 네 갈래로 추려냄 |
 | `/humanize-korean` | 한국어 글의 AI 문체를 걷어낼 때 | 번역투·기계적 병렬 구조를 찾아 교정 |
 
 ## 구성
 
 | 파일 | 역할 |
 |---|---|
-| `CLAUDE.md` | 전역 규칙. 대화 형식(두괄식·개조식), 말과 일, 문서 압축 규칙 |
+| `CLAUDE.md` | 전역 규칙. 대화 형식, 말과 일, 문서 압축 |
 | `hooks/md-discipline.sh` | 지식 md를 고칠 때 압축 규칙을 다시 알려주는 PostToolUse hook |
 | `merge-hooks.js` | settings.json에 위 hook 병합. 이미 있으면 건드리지 않음 |
 | `skills/commit/SKILL.md` | 커밋 메시지 스킬 |
