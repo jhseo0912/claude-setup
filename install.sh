@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/.claude에 전역 규칙·hook·스킬을 설치한다. 기존 CLAUDE.md는 .bak으로 백업.
+# ~/.claude에 전역 규칙, hook, 스킬을 설치한다. 기존 CLAUDE.md는 .bak으로 백업.
 set -e
 cd "$(dirname "$0")"
 CLAUDE_DIR="${CLAUDE_DIR:-$HOME/.claude}"

@@ -1,6 +1,6 @@
 # claude-setup
 
-Claude Code 전역 설정입니다. 새 기기·새 계정에서 `bash install.sh` 한 번이면 그대로 돌아옵니다.
+Claude Code 전역 설정입니다. 새 기기나 새 계정에서 `bash install.sh` 한 번이면 그대로 돌아옵니다.
 
 - CLAUDE.md에 담긴 말투 규칙
 - md가 일기장이 되는 것을 막는 hook
@@ -28,9 +28,9 @@ bash install.sh
 | 스킬 | 언제 | 하는 일 |
 |---|---|---|
 | `/commit` | 커밋할 때 | diff만 본 haiku 서브에이전트가 메시지 작성. 세션 맥락이 안 섞여 장황해지지 않음 |
-| `/wrap` | 작업을 끝낼 때 | 남은 것을 결과물·지식·부산물로 나눠 지식은 문서로, 부산물은 삭제 후 커밋 |
-| `/distill` | md가 비대해졌을 때 | 늘어진 기록을 제약·결정·상태·docs 네 갈래로 추려냄 |
-| `/humanize-korean` | 한국어 글의 AI 문체를 걷어낼 때 | 번역투·기계적 병렬 구조를 찾아 교정 |
+| `/wrap` | 작업을 끝낼 때 | 남은 것을 결과물, 지식, 부산물로 나눠 지식은 문서로, 부산물은 삭제 후 커밋 |
+| `/distill` | md가 비대해졌을 때 | 늘어진 기록을 제약, 결정, 상태, docs 네 갈래로 추려냄 |
+| `/humanize-korean` | 한국어 글의 AI 문체를 걷어낼 때 | 번역투와 기계적 병렬 구조를 찾아 교정 |
 
 ## 구성
 
@@ -51,7 +51,7 @@ bash install.sh
 | [im-not-ai](https://github.com/epoko77-ai/im-not-ai) | MIT | `~/.claude/vendor/im-not-ai` | `/humanize-korean` 스킬 |
 
 - install.sh가 클론해서 함께 설치
-- git·네트워크가 없으면 이 단계만 건너뛰고 나머지는 정상 완료
+- git이나 네트워크가 없으면 이 단계만 건너뛰고 나머지는 정상 완료
 
 ## 제거
 
