@@ -29,9 +29,6 @@ bash install.sh
 | `/distill` | md가 비대해졌을 때 | 늘어진 기록을 제약·결정(ADR)·상태·docs 네 갈래로 추려냅니다 |
 | `/humanize-korean` | 한국어 글의 AI 문체를 걷어낼 때 | 번역투와 기계적 병렬 구조를 찾아 고쳐 씁니다 |
 
-`/humanize-korean`은 [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai)에서 만든 스킬입니다(MIT).
-install.sh가 `~/.claude/vendor/im-not-ai`에 내려받아 함께 깔아줍니다.
-
 ## 구성
 
 | 파일 | 역할 |
@@ -43,6 +40,14 @@ install.sh가 `~/.claude/vendor/im-not-ai`에 내려받아 함께 깔아줍니�
 | `skills/wrap/SKILL.md` | 세션 마무리 스킬 |
 | `skills/distill/SKILL.md` | md 추려내기 스킬 |
 | `install.sh` | 위 파일을 `~/.claude/`에 복사하고 hook을 등록합니다 |
+
+## 외부 의존
+
+| 패키지 | 라이선스 | 받는 곳 | 쓰는 데 |
+|---|---|---|---|
+| [im-not-ai](https://github.com/epoko77-ai/im-not-ai) | MIT | `~/.claude/vendor/im-not-ai` | `/humanize-korean` 스킬 |
+
+install.sh가 클론해서 함께 깔아줍니다. git이나 네트워크가 없으면 이 단계만 건너뛰고 나머지는 그대로 끝납니다.
 
 ## 제거
 
