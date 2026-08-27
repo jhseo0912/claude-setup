@@ -27,22 +27,22 @@ bash install.sh
 
 | 스킬 | 언제 | 하는 일 |
 |---|---|---|
-| `/commit` | 커밋할 때 | diff만 본 haiku 서브에이전트가 메시지 작성. 세션 맥락이 안 섞여 장황해지지 않음 |
-| `/wrap` | 작업을 끝낼 때 | 남은 것을 결과물, 지식, 부산물로 나눠 지식은 문서로, 부산물은 삭제 후 커밋 |
-| `/distill` | md가 비대해졌을 때 | 늘어진 기록을 제약, 결정, 상태, docs 네 갈래로 추려냄 |
-| `/humanize-korean` | 한국어 글의 AI 문체를 걷어낼 때 | 번역투와 기계적 병렬 구조를 찾아 교정 |
+| `/commit` | 커밋할 때 | diff만 본 haiku가 커밋 메시지 작성 |
+| `/wrap` | 작업을 끝낼 때 | 지식은 문서로 옮기고 부산물은 지운 뒤 커밋 |
+| `/distill` | md가 비대해졌을 때 | 늘어진 기록을 네 갈래로 추려냄 |
+| `/humanize-korean` | 한국어 글이 AI 같을 때 | 번역투와 기계적 병렬 구조 교정 |
 
 ## 구성
 
 | 파일 | 역할 |
 |---|---|
-| `CLAUDE.md` | 모든 세션에 붙는 규칙. 답변을 어떻게 쓸지, 일을 어떤 순서로 할지, 문서에 무엇을 남길지 |
-| `hooks/md-discipline.sh` | 지식 md를 고칠 때 압축 규칙을 다시 알려주는 PostToolUse hook |
-| `merge-hooks.js` | settings.json에 위 hook 병합. 이미 있으면 건드리지 않음 |
+| `CLAUDE.md` | 대화 형식, 일하는 순서, 문서 규칙 |
+| `hooks/md-discipline.sh` | 지식 md를 고칠 때 압축 규칙을 다시 알려줌 |
+| `merge-hooks.js` | settings.json에 위 hook 병합 |
 | `skills/commit/SKILL.md` | 커밋 메시지 스킬 |
 | `skills/wrap/SKILL.md` | 세션 마무리 스킬 |
 | `skills/distill/SKILL.md` | md 추려내기 스킬 |
-| `install.sh` | 위 파일을 `~/.claude/`에 복사하고 hook 등록 |
+| `install.sh` | 위 파일 복사 + hook 등록 |
 
 ## 외부 의존
 
