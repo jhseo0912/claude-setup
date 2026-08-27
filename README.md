@@ -36,7 +36,7 @@ bash install.sh
 
 | 파일 | 역할 |
 |---|---|
-| `CLAUDE.md` | 전역 규칙. 대화 형식, 말과 일, 문서 압축 |
+| `CLAUDE.md` | 모든 세션에 붙는 규칙. 답변을 어떻게 쓸지, 일을 어떤 순서로 할지, 문서에 무엇을 남길지 |
 | `hooks/md-discipline.sh` | 지식 md를 고칠 때 압축 규칙을 다시 알려주는 PostToolUse hook |
 | `merge-hooks.js` | settings.json에 위 hook 병합. 이미 있으면 건드리지 않음 |
 | `skills/commit/SKILL.md` | 커밋 메시지 스킬 |
@@ -56,8 +56,10 @@ bash install.sh
 ## 제거
 
 ```bash
-rm -rf ~/.claude/skills/{commit,wrap,distill} ~/.claude/hooks/md-discipline.sh ~/.claude/CLAUDE.md
-bash ~/.claude/vendor/im-not-ai/uninstall.sh && rm -rf ~/.claude/vendor/im-not-ai
+rm -rf ~/.claude/skills/{commit,wrap,distill}
+rm -f ~/.claude/hooks/md-discipline.sh ~/.claude/CLAUDE.md
+bash ~/.claude/vendor/im-not-ai/uninstall.sh
+rm -rf ~/.claude/vendor/im-not-ai
 ```
 
 - 설치 전 전역 규칙은 `~/.claude/CLAUDE.md.bak`에 보존. 이름만 바꾸면 복구
