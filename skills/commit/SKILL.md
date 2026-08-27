@@ -31,7 +31,8 @@ type(scope): 요약
 
 1. 스테이징을 확정한다. `git status`와 `git diff --staged`. 비어 있으면 먼저 add
 2. Agent 도구를 model "haiku"로 호출한다. 프롬프트는 아래 템플릿에 diff를 끼운다.
-   diff가 2000줄을 넘으면 `git diff --staged --stat` 전체 + 핵심 파일 diff로 줄인다
+   diff가 2000줄을 넘으면 `git diff --staged --stat` 전체 + 핵심 파일 diff로 줄인다.
+   Agent 도구가 없는 환경이면 `claude -p "<프롬프트>" --model haiku` 헤드리스 호출로 대신한다.
 3. 반환된 메시지를 위 형식으로 검사한다. 위반과 언어 불일치는 직접 고친다.
    haiku 호출은 한 번으로 끝낸다
 4. 그 메시지로 커밋한다
