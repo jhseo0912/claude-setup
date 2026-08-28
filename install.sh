@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "$0")"
 CLAUDE_DIR="${CLAUDE_DIR:-$HOME/.claude}"
 
-mkdir -p "$CLAUDE_DIR/hooks" "$CLAUDE_DIR/skills/distill" "$CLAUDE_DIR/skills/commit" "$CLAUDE_DIR/skills/wrap" "$CLAUDE_DIR/skills/readme"
+mkdir -p "$CLAUDE_DIR/hooks" "$CLAUDE_DIR/skills/distill" "$CLAUDE_DIR/skills/commit" "$CLAUDE_DIR/skills/wrap" "$CLAUDE_DIR/skills/readme" "$CLAUDE_DIR/skills/release"
 [ -f "$CLAUDE_DIR/CLAUDE.md" ] && cp "$CLAUDE_DIR/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md.bak"
 cp CLAUDE.md "$CLAUDE_DIR/CLAUDE.md"
 cp hooks/md-discipline.sh "$CLAUDE_DIR/hooks/md-discipline.sh"
@@ -12,6 +12,7 @@ cp skills/distill/SKILL.md "$CLAUDE_DIR/skills/distill/SKILL.md"
 cp skills/commit/SKILL.md "$CLAUDE_DIR/skills/commit/SKILL.md"
 cp skills/wrap/SKILL.md "$CLAUDE_DIR/skills/wrap/SKILL.md"
 cp skills/readme/SKILL.md "$CLAUDE_DIR/skills/readme/SKILL.md"
+cp skills/release/SKILL.md "$CLAUDE_DIR/skills/release/SKILL.md"
 node merge-hooks.js "$CLAUDE_DIR/settings.json"
 
 # humanize-korean(im-not-ai, MIT): 한국어 AI 문체 교정 스킬.
