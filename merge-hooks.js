@@ -36,4 +36,24 @@ for (const { event, matcher, cmd } of HOOKS) {
   console.log(`${event} hook 등록: ${cmd}`);
 }
 
+// 검색 위임 규칙이 부르는 cavecrew-investigator는 caveman 플러그인 소속이다.
+// 마켓플레이스 등록과 활성화를 여기서 같이 해준다. 이미 있으면 안 건드린다.
+s.extraKnownMarketplaces = s.extraKnownMarketplaces || {};
+if (!s.extraKnownMarketplaces.caveman) {
+  s.extraKnownMarketplaces.caveman = { source: { source: 'github', repo: 'juliusbrussee/caveman' } };
+  changed = true;
+  console.log('caveman marketplace 등록');
+} else {
+  console.log('caveman marketplace 이미 등록됨, 변경 없음');
+}
+
+s.enabledPlugins = s.enabledPlugins || {};
+if (!('caveman@caveman' in s.enabledPlugins)) {
+  s.enabledPlugins['caveman@caveman'] = true;
+  changed = true;
+  console.log('caveman 플러그인 활성화');
+} else {
+  console.log('caveman 플러그인 설정 이미 있음, 변경 없음');
+}
+
 if (changed) fs.writeFileSync(path, JSON.stringify(s, null, 2) + '\n');
