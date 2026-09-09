@@ -58,7 +58,7 @@ bash install.sh
 | 패키지 | 라이선스 | 받는 곳 | 쓰는 데 |
 |---|---|---|---|
 | [im-not-ai](https://github.com/epoko77-ai/im-not-ai) | MIT | `~/.claude/vendor/im-not-ai` | `/humanize-korean` 스킬 |
-| [caveman](https://github.com/juliusbrussee/caveman) | MIT | 플러그인 마켓플레이스 | 검색 위임의 `cavecrew-investigator`, 편집 위임의 `cavecrew-builder` |
+| [caveman](https://github.com/juliusbrussee/caveman) | MIT | 플러그인 마켓플레이스 | 검색 위임의 `cavecrew-investigator`, 편집 위임의 `cavecrew-builder`(둘 다 model haiku) |
 
 - im-not-ai는 install.sh가 클론해서 함께 설치. git이나 네트워크가 없으면 이 단계만 건너뛰고 나머지는 정상 완료
 - caveman은 install.sh가 settings.json에 마켓플레이스 등록과 플러그인 활성화만 해준다. 실제 설치는 다음 세션 시작 때 Claude Code가 받는다

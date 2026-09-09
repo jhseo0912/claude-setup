@@ -31,10 +31,12 @@
 - 설계 판단과 최종 검증은 메인이 직접 한다. 위임 대상은 탐색과 아래 편집 위임뿐이다
 
 ## 편집 위임
-- 파일 1~2개, 범위가 뻔한 수술적 수정은 Agent 도구로 위임한다. subagent_type은 caveman:cavecrew-builder로 고정한다
-- 새 기능, 새 파일, 3개 이상 파일, 설계 판단이 필요한 리팩터는 메인이 직접 한다. 위임 대상이 아니다
-- cavecrew-builder가 too-big이나 ambiguous나 needs-confirm으로 돌려주면 그 사유대로 메인이 처리한다. 같은 요청으로 다시 시키지 않는다
-- 결과 검증은 메인이 한다. cavecrew-builder는 Bash가 없어 테스트를 못 돌린다
+- 메인이 문제를 진단하고 고칠 방법을 정한다. 진단과 설계는 위임하지 않는다
+- 코드가 짧고 정답이 명확하면 그 진단과 방법을 그대로 넣어 위임한다. Agent 도구, subagent_type caveman:cavecrew-builder, model haiku로 고정한다
+- 정답이 애매하거나 설계 판단이 남았으면 위임하지 않고 메인이 직접 쓴다
+- 위임 프롬프트는 무엇을 어떻게 고칠지 구체적으로 적는다. haiku는 대화 맥락이 없다
+- 결과는 메인이 검수한다. cavecrew-builder는 Bash가 없어 테스트를 못 돌린다, 검수 전엔 끝난 게 아니다
+- 범위가 3개 파일을 넘거나 cavecrew-builder가 too-big이나 ambiguous로 돌려주면 메인이 직접 한다
 
 ## 문서: 지식은 압축해서 남긴다
 - 일기장식 md 금지. 늘어진 기록 대신 결론만 남긴다. 남기는 형태는 셋이다
