@@ -43,6 +43,7 @@ bash install.sh
 |---|---|
 | `CLAUDE.md` | 대화 형식, 일하는 순서, 문서 규칙 |
 | `hooks/md-discipline.sh` | 지식 md를 고칠 때 압축 규칙을 다시 알려줌 |
+| `hooks/style-reminder.sh` | 매 턴 문체와 검색 위임 규칙을 다시 알려줌 |
 | `merge-hooks.js` | settings.json에 위 hook 병합 |
 | `skills/commit/SKILL.md` | 커밋 메시지 스킬 |
 | `skills/wrap/SKILL.md` | 세션 마무리 스킬 |
@@ -69,7 +70,7 @@ bash install.sh
 rm -rf ~/.claude/skills/{commit,wrap,distill,readme,release}
 rm -rf ~/.claude/skills/{company,role-group-lead,role-hr,role-pm,role-secretary,role-pipeline,role-lead,role-member}
 rm -f ~/.claude/hooks/post-compact.sh
-rm -f ~/.claude/hooks/md-discipline.sh ~/.claude/CLAUDE.md
+rm -f ~/.claude/hooks/md-discipline.sh ~/.claude/hooks/style-reminder.sh ~/.claude/CLAUDE.md
 bash ~/.claude/vendor/im-not-ai/uninstall.sh
 rm -rf ~/.claude/vendor/im-not-ai
 ```

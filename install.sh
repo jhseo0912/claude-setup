@@ -8,6 +8,7 @@ mkdir -p "$CLAUDE_DIR/hooks" "$CLAUDE_DIR/skills/distill" "$CLAUDE_DIR/skills/co
 [ -f "$CLAUDE_DIR/CLAUDE.md" ] && cp "$CLAUDE_DIR/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md.bak"
 cp CLAUDE.md "$CLAUDE_DIR/CLAUDE.md"
 cp hooks/md-discipline.sh "$CLAUDE_DIR/hooks/md-discipline.sh"
+cp hooks/style-reminder.sh "$CLAUDE_DIR/hooks/style-reminder.sh"
 cp skills/distill/SKILL.md "$CLAUDE_DIR/skills/distill/SKILL.md"
 cp skills/commit/SKILL.md "$CLAUDE_DIR/skills/commit/SKILL.md"
 cp skills/wrap/SKILL.md "$CLAUDE_DIR/skills/wrap/SKILL.md"
