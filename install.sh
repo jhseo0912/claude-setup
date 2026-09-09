@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/.claude에 전역 규칙, hook, 스킬을 설치한다. 기존 CLAUDE.md는 .bak으로 백업.
+# ~/.claude에 전역 규칙, hook, 스킬, company 역할 스킬을 설치한다. 기존 CLAUDE.md는 .bak으로 백업.
 set -e
 cd "$(dirname "$0")"
 CLAUDE_DIR="${CLAUDE_DIR:-$HOME/.claude}"
@@ -13,6 +13,10 @@ cp skills/commit/SKILL.md "$CLAUDE_DIR/skills/commit/SKILL.md"
 cp skills/wrap/SKILL.md "$CLAUDE_DIR/skills/wrap/SKILL.md"
 cp skills/readme/SKILL.md "$CLAUDE_DIR/skills/readme/SKILL.md"
 cp skills/release/SKILL.md "$CLAUDE_DIR/skills/release/SKILL.md"
+for d in company/skills/*/; do
+  n=$(basename "$d"); mkdir -p "$CLAUDE_DIR/skills/$n"; cp -r "$d"/. "$CLAUDE_DIR/skills/$n/"
+done
+cp company/hooks/post-compact.sh "$CLAUDE_DIR/hooks/post-compact.sh"
 node merge-hooks.js "$CLAUDE_DIR/settings.json"
 
 # humanize-korean(im-not-ai, MIT): 한국어 AI 문체 교정 스킬.

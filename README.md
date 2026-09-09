@@ -5,6 +5,7 @@ Claude Code 전역 설정입니다. 새 기기나 새 계정에서 `bash install
 - CLAUDE.md에 담긴 말투 규칙
 - md가 일기장이 되는 것을 막는 hook
 - 리포에 든 스킬 5종
+- 세션 여러 개를 회사처럼 나눠 일하는 운영 규칙 company/
 - 함께 깔리는 외부 스킬 1종
 
 ## 설치
@@ -33,6 +34,8 @@ bash install.sh
 | `/readme` | README가 코드와 어긋날 때 | 갱신 후 haiku에게 읽혀 검증 |
 | `/release` | 태그를 끊을 때 | 깨지는 변경을 앞세운 릴리스 노트 |
 | `/humanize-korean` | 한국어 글이 AI 같을 때 | 번역투와 기계적 병렬 구조 교정 |
+| `/company init` | 세션 조직으로 시작할 때 | company-docs 뼈대 복사 |
+| `/role-<역할>` | 세션 온보딩 때 | 그룹장, HR, PM, 비서, 파이프라인, 팀장, 팀원 직무 |
 
 ## 구성
 
@@ -46,6 +49,7 @@ bash install.sh
 | `skills/distill/SKILL.md` | md 추려내기 스킬 |
 | `skills/readme/SKILL.md` | README 작성 스킬 |
 | `skills/release/SKILL.md` | 릴리스 노트 스킬 |
+| `company/` | 역할 스킬 일곱과 company 템플릿, PostCompact hook. 상세는 company/README.md |
 | `install.sh` | 위 파일 복사 + hook 등록 |
 
 ## 외부 의존
@@ -61,6 +65,8 @@ bash install.sh
 
 ```bash
 rm -rf ~/.claude/skills/{commit,wrap,distill,readme,release}
+rm -rf ~/.claude/skills/{company,role-group-lead,role-hr,role-pm,role-secretary,role-pipeline,role-lead,role-member}
+rm -f ~/.claude/hooks/post-compact.sh
 rm -f ~/.claude/hooks/md-discipline.sh ~/.claude/CLAUDE.md
 bash ~/.claude/vendor/im-not-ai/uninstall.sh
 rm -rf ~/.claude/vendor/im-not-ai
