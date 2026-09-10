@@ -1,0 +1,14 @@
+{
+  "name": "claude-supervisor",
+  "version": "0.1.0",
+  "description": "실행 중인 Claude Code 세션의 컨텍스트 크기를 보여주는 대시보드",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

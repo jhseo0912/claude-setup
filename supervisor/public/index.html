@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>claude supervisor</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; padding: 24px; background: #14140f; color: #e8e4d8;
+         font: 14px/1.5 ui-monospace, "Cascadia Code", Consolas, monospace; }
+  h1 { font-size: 16px; margin: 0 0 4px; font-weight: 600; }
+  .sub { color: #8a8577; margin-bottom: 20px; font-size: 12px; }
+  table { border-collapse: collapse; width: 100%; }
+  th { text-align: left; font-weight: 600; color: #8a8577; font-size: 12px;
+       border-bottom: 1px solid #33322a; padding: 6px 10px; }
+  td { padding: 7px 10px; border-bottom: 1px solid #22221c; vertical-align: top; }
+  tr:hover td { background: #1c1c16; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .over { color: #e8845a; font-weight: 600; }
+  .cwd { color: #8a8577; font-size: 12px; word-break: break-all; max-width: 340px; }
+  .badge { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 11px; }
+  .interactive { background: #2b4a33; color: #9fd6ac; }
+  .background { background: #3a3524; color: #d6c78a; }
+  .blocked { background: #4a2b2b; color: #d69f9f; }
+  button { background: #26261e; color: #e8e4d8; border: 1px solid #3d3c31;
+           border-radius: 3px; padding: 3px 10px; cursor: pointer; font: inherit; font-size: 12px; }
+  button:hover { background: #33332a; }
+  button.on { background: #2b4a33; border-color: #3f6b4b; color: #9fd6ac; }
+  .bar { height: 3px; background: #2a2a22; border-radius: 2px; margin-top: 4px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: #6b8f5a; }
+  .bar i.over { background: #e8845a; }
+</style>
+</head>
+<body>
+<h1>claude supervisor</h1>
+<div class="sub" id="sub">불러오는 중</div>
+<table>
+  <thead><tr>
+    <th>세션</th><th>종류</th><th class="num">컨텍스트</th><th class="num">트랜스크립트</th>
+    <th>작업 폴더</th><th>등록</th>
+  </tr></thead>
+  <tbody id="rows"></tbody>
+</table>
+
+<script>
+const fmt = (n) => n == null ? '—' : n.toLocaleString('ko-KR');
+
+async function post(url, body) {
+  await fetch(url, { method: 'POST', headers: {'content-type':'application/json'}, body: JSON.stringify(body) });
+  load();
+}
+
+async function load() {
+  const r = await fetch('/api/sessions');
+  const d = await r.json();
+  const warn = d.warnTokens;
+  document.getElementById('sub').textContent =
+    `세션 ${d.sessions.length}개 · 경고 임계 ${fmt(warn)} 토큰 · ${new Date().toLocaleTimeString('ko-KR')}`;
+  document.getElementById('rows').innerHTML = d.sessions.map(s => {
+    const pct = s.contextTokens ? Math.min(100, s.contextTokens / 1000000 * 100) : 0;
+    const kind = s.state === 'blocked' ? 'blocked' : s.kind;
+    return `<tr>
+      <td><div>${s.name || s.shortId}</div>
+          <div class="cwd">${s.shortId}</div></td>
+      <td><span class="badge ${kind}">${kind}</span></td>
+      <td class="num ${s.over ? 'over' : ''}">${fmt(s.contextTokens)}
+          <div class="bar"><i class="${s.over ? 'over' : ''}" style="width:${pct}%"></i></div></td>
+      <td class="num">${s.transcriptMB == null ? '—' : s.transcriptMB + ' MB'}</td>
+      <td class="cwd">${s.cwd || ''}</td>
+      <td><button class="${s.registered ? 'on' : ''}"
+            onclick="post('/api/${s.registered ? 'unregister' : 'register'}', {sessionId:'${s.sessionId}', name:${JSON.stringify(s.name)}})">
+            ${s.registered ? '등록됨' : '등록'}</button></td>
+    </tr>`;
+  }).join('');
+}
+load();
+setInterval(load, 5000);
+</script>
+</body>
+</html>

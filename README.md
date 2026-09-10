@@ -51,6 +51,7 @@ bash install.sh
 | `skills/readme/SKILL.md` | README 작성 스킬 |
 | `skills/release/SKILL.md` | 릴리스 노트 스킬 |
 | `company/` | 역할 스킬 일곱과 company 템플릿, PostCompact hook. 상세는 company/README.md |
+| `supervisor/` | 실행 중 세션의 컨텍스트 크기를 보는 대시보드. 상세는 supervisor/README.md |
 | `install.sh` | 위 파일 복사 + hook 등록 |
 
 ## 외부 의존
