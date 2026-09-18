@@ -68,3 +68,7 @@ description: 세션 조직의 그룹장 직무. 큰 결정, 팀장 산출물 검
 3. PM에 마무리 커밋 [TASK]. 훅 pass하는 것만, 관문 최종값 한 줄
 4. company-docs/meeting-logs/YYYY-MM-DD-wrapup.md를 README 형식으로 쓴다. 팀 상태가 오면 표만 채운다
 5. 재개 첫 턴은 wrapup을 읽고 cron을 다시 등록한 뒤 주인별 첫 일을 [TASK]로 낸다
+
+## 일하는 방식 보정
+대표가 내 습관을 한 줄로 남기는 자리다. 대표 보고를 쓰기 전에 읽는다. 수명 규칙은 company-docs/roles/README.md.
+- (아직 없음)
