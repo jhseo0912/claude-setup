@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# PostCompact. cwd에 company-docs/roster.md가 있을 때만 복구 절차를 주입한다. 다른 프로젝트는 아무 출력 없음.
+# SessionStart(matcher: compact). hookEventName에 "PostCompact"는 없다. 스키마가 거부한다.
+# cwd에 company-docs/roster.md가 있을 때만 복구 절차를 주입한다. 다른 프로젝트는 아무 출력 없음.
 input=$(cat)
 cwd=$(printf '%s' "$input" | grep -o '"cwd"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed 's/.*:[[:space:]]*"//; s/"$//')
 [ -z "$cwd" ] && cwd="$PWD"
-cwd=${cwd//\//}
+cwd=${cwd%/}
 [ -f "$cwd/company-docs/roster.md" ] || exit 0
 python - "$cwd" <<'PY'
 import json, sys
@@ -18,5 +19,5 @@ ctx = (
  "5) 그 뒤 하던 태스크를 이어간다. 무엇을 하던 중인지 모호하면 상사에게 [ASK]. "
  "카드 형식은 company-docs/session-protocol.md. 커밋과 git 인덱스는 PM만 만진다."
 )
-print(json.dumps({"hookSpecificOutput":{"hookEventName":"PostCompact","additionalContext":ctx}}, ensure_ascii=False))
+print(json.dumps({"hookSpecificOutput":{"hookEventName":"SessionStart","additionalContext":ctx}}, ensure_ascii=False))
 PY

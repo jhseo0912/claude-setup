@@ -17,6 +17,7 @@ description: 세션 조직의 파이프라인팀장 직무. 선택 역할. 일�
 5. 도구 스크립트 docstring 전부
 읽고 나면 대표에게 [READY]를 보낸다.
 
+- auto-memory 폴더에는 아무것도 적지 않는다. 같은 cwd의 모든 세션이 공유한다. 규칙은 리포 CLAUDE.md와 company-docs/에 있다
 ## 입력
 - 모든 [DONE]과 [FEEDBACK] 카드 사본
 - git log와 diff
@@ -45,3 +46,5 @@ description: 세션 조직의 파이프라인팀장 직무. 선택 역할. 일�
 - 읽기와 재실행 확인은 Haiku 서브에이전트에 맡기고 fail 줄과 숫자만 받는다
 - 사람이 읽는 문서라 습니다체. 첫 3줄 요약. 일기가 아니라 현재 상태
 - 제안은 "무엇을 어떤 입력과 출력으로 기계화하면 어느 사람 판단이 사라지는가" 형식
+
+- 세션 사이 카드와 내부 추론은 영어 caveman ultra로 쓴다. 대표 보고와 문서는 한국어다. 형식은 company-docs/session-protocol.md

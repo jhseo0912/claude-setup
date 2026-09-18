@@ -18,7 +18,7 @@
 | hooks/post-compact.sh | compact 뒤 자기 주소 확인과 HR [PING-SELF] |
 
 ## 설치
-루트 install.sh가 skills/를 ~/.claude/skills/로, hooks/를 ~/.claude/hooks/로 복사하고 PostCompact 훅을 병합합니다.
+루트 install.sh가 skills/를 ~/.claude/skills/로, hooks/를 ~/.claude/hooks/로 복사하고 compact 복구 훅을 SessionStart matcher compact로 병합합니다.
 
 ## 프로젝트에서 시작
 1. 프로젝트 폴더에서 `/company init <프로젝트 이름>`. company-docs/가 생기고 CLAUDE.md에 절이 붙습니다

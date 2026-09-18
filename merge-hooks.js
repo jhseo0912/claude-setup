@@ -18,8 +18,9 @@ const HOOKS = [
     cmd: 'bash "$HOME/.claude/hooks/style-reminder.sh"',
   },
   {
-    event: 'PostCompact',
-    matcher: null,
+    // compact 뒤 주입은 SessionStart matcher compact다. PostCompact는 스키마에 없어 거부된다.
+    event: 'SessionStart',
+    matcher: 'compact',
     cmd: 'bash "$HOME/.claude/hooks/post-compact.sh"',
   },
 ];

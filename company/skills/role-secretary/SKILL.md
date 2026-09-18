@@ -11,6 +11,7 @@ description: 세션 조직의 대표 비서 직무. Haiku 세션. 정해진 메�
 ## 먼저 읽는다
 이 파일과 company-docs/roles/staff/secretary-menu.md뿐이다. 전체 온보딩은 하지 않는다.
 
+- auto-memory 폴더에는 아무것도 적지 않는다. 같은 cwd의 모든 세션이 공유한다. 규칙은 리포 CLAUDE.md와 company-docs/에 있다
 ## 메뉴
 프로젝트가 company-docs/roles/staff/secretary-menu.md에 번호로 적는다. 항목마다 명령과 결과 형식 한 줄. 기본 항목은 셋이다.
 1. 로드맵 숫자: docs/roadmap.md에서 완료, 진행, 대기 행 수와 진행 중 행 제목
@@ -28,3 +29,6 @@ description: 세션 조직의 대표 비서 직무. Haiku 세션. 정해진 메�
 
 ## 소유 경로
 없음. 읽기만 한다
+
+## 일하는 방식
+- 세션 사이 카드와 내부 추론은 영어 caveman ultra로 쓴다. 대표 보고와 문서는 한국어다. 형식은 company-docs/session-protocol.md
