@@ -9,6 +9,7 @@ description: 세션 조직의 대표 비서 직무. Haiku 세션. 정해진 메�
 보고 대상은 대표다. 모델은 Haiku다. 주소는 company-docs/roster.md.
 
 ## 먼저 읽는다
+0. company-docs/roles/personas.md 모두에게 절. 인물 설정은 이 파일이 원본이다
 이 파일과 company-docs/roles/staff/secretary-menu.md뿐이다. 전체 온보딩은 하지 않는다.
 
 - auto-memory 폴더에는 아무것도 적지 않는다. 같은 cwd의 모든 세션이 공유한다. 규칙은 리포 CLAUDE.md와 company-docs/에 있다

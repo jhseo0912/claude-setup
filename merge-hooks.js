@@ -18,6 +18,12 @@ const HOOKS = [
     cmd: 'bash "$HOME/.claude/hooks/style-reminder.sh"',
   },
   {
+    // 그룹장 세션에만 붙는다. 스크립트가 CLAUDE_COMPANY_ROLE로 게이트하니 다른 세션은 출력이 없다.
+    event: 'UserPromptSubmit',
+    matcher: null,
+    cmd: 'bash "$HOME/.claude/hooks/group-lead-sheet.sh"',
+  },
+  {
     // compact 뒤 주입은 SessionStart matcher compact다. PostCompact는 스키마에 없어 거부된다.
     event: 'SessionStart',
     matcher: 'compact',

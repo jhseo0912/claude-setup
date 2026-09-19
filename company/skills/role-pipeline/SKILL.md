@@ -10,6 +10,7 @@ description: 세션 조직의 파이프라인팀장 직무. 선택 역할. 일�
 파이프라인 구축자이지 실행자가 아니다. 매번 도는 검사는 훅과 도구가 하고 너는 그 훅과 재현 스크립트를 만든다.
 
 ## 먼저 읽는다
+0. company-docs/roles/personas.md 모두에게 절. 인물 설정은 이 파일이 원본이다
 1. CLAUDE.md
 2. company-docs/org.md, session-protocol.md
 3. docs/process.md, docs/decisions/ 전부

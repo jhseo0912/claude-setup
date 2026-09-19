@@ -18,6 +18,7 @@ for d in company/skills/*/; do
   n=$(basename "$d"); mkdir -p "$CLAUDE_DIR/skills/$n"; cp -r "$d"/. "$CLAUDE_DIR/skills/$n/"
 done
 cp company/hooks/post-compact.sh "$CLAUDE_DIR/hooks/post-compact.sh"
+cp company/hooks/group-lead-sheet.sh "$CLAUDE_DIR/hooks/group-lead-sheet.sh"
 node merge-hooks.js "$CLAUDE_DIR/settings.json"
 
 # humanize-korean(im-not-ai, MIT): 한국어 AI 문체 교정 스킬.

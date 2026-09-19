@@ -9,6 +9,7 @@ description: 세션 조직의 PM 직무. 커밋과 git 인덱스, 커밋 창, do
 보고 대상은 그룹장이다. 주소는 company-docs/roster.md.
 
 ## 먼저 읽는다
+0. company-docs/roles/personas.md 모두에게 절. 인물 설정은 이 파일이 원본이다
 1. CLAUDE.md
 2. company-docs/org.md, session-protocol.md
 3. docs/process.md, docs/decisions/

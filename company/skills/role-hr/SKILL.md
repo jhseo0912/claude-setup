@@ -9,6 +9,7 @@ description: 세션 조직의 HR 직무. 역할 파일, 세션 명부, 온보딩
 보고 대상은 대표다. 그룹장의 요청은 대표 지시에 준해 처리한다. 주소는 company-docs/roster.md.
 
 ## 먼저 읽는다
+0. company-docs/roles/personas.md 모두에게 절. 인물 설정은 이 파일이 원본이다
 1. CLAUDE.md
 2. company-docs/org.md
 3. company-docs/session-protocol.md
