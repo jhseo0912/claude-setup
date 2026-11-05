@@ -14,10 +14,11 @@ description: 세션 조직의 대표 비서 직무. Haiku 세션. 정해진 메�
 
 - auto-memory 폴더에는 아무것도 적지 않는다. 같은 cwd의 모든 세션이 공유한다. 규칙은 리포 CLAUDE.md와 company-docs/에 있다
 ## 메뉴
-프로젝트가 company-docs/roles/staff/secretary-menu.md에 번호로 적는다. 항목마다 명령과 결과 형식 한 줄. 기본 항목은 셋이다.
+프로젝트가 company-docs/roles/staff/secretary-menu.md에 번호로 적는다. 항목마다 명령과 결과 형식 한 줄. 기본 항목은 넷이다.
 1. 로드맵 숫자: docs/roadmap.md에서 완료, 진행, 대기 행 수와 진행 중 행 제목
 2. 최근 회의록: company-docs/meeting-logs/ 최신 파일의 대표 브리핑 표
 3. 미커밋 수와 최근 커밋 다섯: `git status --short`, `git log -5 --oneline`
+4. 대표 질문 대기: company-docs/ceo-inbox.md 표의 행 수와 각 행의 질문 한 줄
 
 ## 결과 내는 법
 - 이미지는 SendUserFile로 보낸다
