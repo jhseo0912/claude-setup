@@ -63,4 +63,20 @@ if (!('caveman@caveman' in s.enabledPlugins)) {
   console.log('caveman 플러그인 설정 이미 있음, 변경 없음');
 }
 
+// i-have-adhd(ayghri, MIT): 답을 먼저, 번호 단계, 곁가지 없이 쓰는 출력 스킬. /i-have-adhd로 켠다.
+if (!s.extraKnownMarketplaces['i-have-adhd']) {
+  s.extraKnownMarketplaces['i-have-adhd'] = { source: { source: 'github', repo: 'ayghri/i-have-adhd' } };
+  changed = true;
+  console.log('i-have-adhd marketplace 등록');
+} else {
+  console.log('i-have-adhd marketplace 이미 등록됨, 변경 없음');
+}
+if (!('i-have-adhd@i-have-adhd' in s.enabledPlugins)) {
+  s.enabledPlugins['i-have-adhd@i-have-adhd'] = true;
+  changed = true;
+  console.log('i-have-adhd 플러그인 활성화');
+} else {
+  console.log('i-have-adhd 플러그인 설정 이미 있음, 변경 없음');
+}
+
 if (changed) fs.writeFileSync(path, JSON.stringify(s, null, 2) + '\n');
