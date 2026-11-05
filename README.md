@@ -6,7 +6,7 @@ Claude Code 전역 설정입니다. 새 기기나 새 계정에서 `bash install
 - md가 일기장이 되는 것을 막는 hook
 - 리포에 든 스킬 5종
 - 세션 여러 개를 회사처럼 나눠 일하는 운영 규칙 company/
-- 함께 깔리는 외부 스킬 1종
+- 함께 깔리는 외부 스킬 1종과 플러그인 2종
 
 ## 설치
 
@@ -34,6 +34,7 @@ bash install.sh
 | `/readme` | README가 코드와 어긋날 때 | 갱신 후 haiku에게 읽혀 검증 |
 | `/release` | 태그를 끊을 때 | 깨지는 변경을 앞세운 릴리스 노트 |
 | `/humanize-korean` | 한국어 글이 AI 같을 때 | 번역투와 기계적 병렬 구조 교정 |
+| `/i-have-adhd` | 대화 첫 턴에 자동 | 답 먼저, 번호 단계, 곁가지 없이 |
 | `/company init` | 세션 조직으로 시작할 때 | company-docs 뼈대 복사 |
 | `/role-<역할>` | 세션 온보딩 때 | 그룹장, HR, PM, 비서, 파이프라인, 팀장, 팀원 직무 |
 
@@ -60,9 +61,10 @@ bash install.sh
 |---|---|---|---|
 | [im-not-ai](https://github.com/epoko77-ai/im-not-ai) | MIT | `~/.claude/vendor/im-not-ai` | `/humanize-korean` 스킬 |
 | [caveman](https://github.com/juliusbrussee/caveman) | MIT | 플러그인 마켓플레이스 | 검색 위임 규칙의 `cavecrew-investigator` |
+| [i-have-adhd](https://github.com/ayghri/i-have-adhd) | MIT | 플러그인 마켓플레이스 | 대화 출력 형식 |
 
 - im-not-ai는 install.sh가 클론해서 함께 설치. git이나 네트워크가 없으면 이 단계만 건너뛰고 나머지는 정상 완료
-- caveman은 install.sh가 settings.json에 마켓플레이스 등록과 플러그인 활성화만 해준다. 실제 설치는 다음 세션 시작 때 Claude Code가 받는다
+- caveman과 i-have-adhd는 install.sh가 settings.json에 마켓플레이스 등록과 플러그인 활성화만 해준다. 실제 설치는 다음 세션 시작 때 Claude Code가 받는다
 - caveman 플러그인이 없으면 검색 위임 규칙이 못 돈다. CLAUDE.md 규칙대로 Explore로 대신하지 않고 멈춘다
 
 ## 제거
