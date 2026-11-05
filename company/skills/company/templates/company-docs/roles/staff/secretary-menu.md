@@ -6,4 +6,5 @@
 | 1 | 로드맵 숫자 | docs/roadmap.md 상태 열 세기 | 완료, 진행, 대기 수와 진행 행 제목 표 |
 | 2 | 최근 회의록 | company-docs/meeting-logs/ 최신 파일 | 대표 브리핑 표 그대로 |
 | 3 | 커밋 현황 | `git status --short`, `git log -5 --oneline` | 미커밋 수, 최근 다섯 |
-| 4 | <프로젝트 항목> | <명령> | <형식> |
+| 4 | 대표 질문 대기 | company-docs/ceo-inbox.md 표 | 행 수와 질문 한 줄씩 |
+| 5 | <프로젝트 항목> | <명령> | <형식> |
