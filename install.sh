@@ -42,4 +42,17 @@ else
   echo "git 없음, humanize-korean 건너뜀"
 fi
 
+# find-skills(vercel-labs/skills, MIT): 필요한 스킬을 찾아 설치까지 안내하는 스킬.
+# skills CLI가 ~/.claude/skills/에 깐다. CLI는 HOME 기준이라 CLAUDE_DIR이 <집>/.claude일 때만 돈다.
+# npx가 없거나 node가 22.20보다 낮으면 건너뛴다. 나머지 설치는 그대로 끝난다.
+if [ "$(basename "$CLAUDE_DIR")" != ".claude" ]; then
+  echo "CLAUDE_DIR이 <집>/.claude가 아님, find-skills 건너뜀"
+elif command -v npx >/dev/null 2>&1 \
+   && node -e 'const[a,b]=process.versions.node.split(".").map(Number);process.exit(a>22||(a===22&&b>=20)?0:1)' 2>/dev/null; then
+  HOME="$(dirname "$CLAUDE_DIR")" npx -y skills add vercel-labs/skills -s find-skills -g -a claude-code -y >/dev/null 2>&1 \
+    && echo "find-skills 설치 완료" || echo "find-skills 설치 실패, 건너뜀"
+else
+  echo "npx 없음 또는 node 22.20 미만, find-skills 건너뜀"
+fi
+
 echo "설치 완료. 새 Claude Code 세션부터 적용된다."
