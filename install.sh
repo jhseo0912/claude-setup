@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "$0")"
 CLAUDE_DIR="${CLAUDE_DIR:-$HOME/.claude}"
 
-mkdir -p "$CLAUDE_DIR/hooks" "$CLAUDE_DIR/skills/distill" "$CLAUDE_DIR/skills/commit" "$CLAUDE_DIR/skills/wrap" "$CLAUDE_DIR/skills/readme" "$CLAUDE_DIR/skills/release" "$CLAUDE_DIR/skills/night-run"
+mkdir -p "$CLAUDE_DIR/hooks" "$CLAUDE_DIR/skills/distill" "$CLAUDE_DIR/skills/commit" "$CLAUDE_DIR/skills/wrap" "$CLAUDE_DIR/skills/readme" "$CLAUDE_DIR/skills/release" "$CLAUDE_DIR/skills/night-run" "$CLAUDE_DIR/skills/frugal"
 [ -f "$CLAUDE_DIR/CLAUDE.md" ] && cp "$CLAUDE_DIR/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md.bak"
 cp CLAUDE.md "$CLAUDE_DIR/CLAUDE.md"
 cp hooks/md-discipline.sh "$CLAUDE_DIR/hooks/md-discipline.sh"
@@ -15,6 +15,7 @@ cp skills/wrap/SKILL.md "$CLAUDE_DIR/skills/wrap/SKILL.md"
 cp skills/readme/SKILL.md "$CLAUDE_DIR/skills/readme/SKILL.md"
 cp skills/release/SKILL.md "$CLAUDE_DIR/skills/release/SKILL.md"
 cp skills/night-run/SKILL.md "$CLAUDE_DIR/skills/night-run/SKILL.md"
+cp skills/frugal/SKILL.md "$CLAUDE_DIR/skills/frugal/SKILL.md"
 for d in company/skills/*/; do
   n=$(basename "$d"); mkdir -p "$CLAUDE_DIR/skills/$n"; cp -r "$d"/. "$CLAUDE_DIR/skills/$n/"
 done
