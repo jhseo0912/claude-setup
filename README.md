@@ -4,7 +4,7 @@ Claude Code 전역 설정입니다. 새 기기나 새 계정에서 `bash install
 
 - CLAUDE.md에 담긴 말투 규칙
 - md가 일기장이 되는 것을 막는 hook
-- 리포에 든 스킬 5종
+- 리포에 든 스킬 6종
 - 세션 여러 개를 회사처럼 나눠 일하는 운영 규칙 company/
 - 함께 깔리는 외부 스킬 2종과 플러그인 2종
 
@@ -33,6 +33,7 @@ bash install.sh
 | `/distill` | md가 비대해졌을 때 | 늘어진 기록을 네 갈래로 추려냄 |
 | `/readme` | README가 코드와 어긋날 때 | 갱신 후 haiku에게 읽혀 검증 |
 | `/release` | 태그를 끊을 때 | 깨지는 변경을 앞세운 릴리스 노트 |
+| `/night-run` | 자리를 비울 때 | 사용량 안에서 할 일 목록을 밤새 끝까지 |
 | `/humanize-korean` | 한국어 글이 AI 같을 때 | 번역투와 기계적 병렬 구조 교정 |
 | `/i-have-adhd` | 대화 첫 턴에 자동 | 답 먼저, 번호 단계, 곁가지 없이 |
 | `/find-skills` | "X 하는 스킬 있나" 할 때 | 스킬 생태계에서 찾아 설치 명령까지 안내 |
@@ -52,6 +53,7 @@ bash install.sh
 | `skills/distill/SKILL.md` | md 추려내기 스킬 |
 | `skills/readme/SKILL.md` | README 작성 스킬 |
 | `skills/release/SKILL.md` | 릴리스 노트 스킬 |
+| `skills/night-run/SKILL.md` | 밤 작업 실행 스킬 |
 | `company/` | 역할 스킬 일곱과 company 템플릿, compact 복구 hook |
 | `supervisor/` | 실행 중 세션의 컨텍스트 크기를 보는 대시보드. 상세는 supervisor/README.md |
 | `install.sh` | 위 파일 복사 + hook 등록 |
@@ -73,7 +75,7 @@ bash install.sh
 ## 제거
 
 ```bash
-rm -rf ~/.claude/skills/{commit,wrap,distill,readme,release}
+rm -rf ~/.claude/skills/{commit,wrap,distill,readme,release,night-run}
 rm -rf ~/.claude/skills/{company,role-group-lead,role-hr,role-pm,role-secretary,role-pipeline,role-lead,role-member}
 rm -f ~/.claude/hooks/post-compact.sh
 rm -f ~/.claude/hooks/md-discipline.sh ~/.claude/hooks/style-reminder.sh ~/.claude/CLAUDE.md
